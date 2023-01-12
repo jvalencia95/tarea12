@@ -1,0 +1,44 @@
+<section class="container">
+  <h1 class="text-center mb-5">Formulario de Contacto</h1>
+
+  <section class="row justify-content-center">
+    <section class="col-6">
+      <section *ngIf="mostrar" class="alert alert-primary text-center">
+        Gracias por comunicarte con nosotros
+      </section>
+
+      <form [formGroup]="formLogin" (ngSubmit)="enviar()">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" placeholder="input" formControlName="nombre"
+            [ngStyle]="{'border-color': nombre?.invalid && (nombre?.dirty || nombre?.touched) ? 'red':'gray'}">
+          <label for="floatingInput">Nombre</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingEmail" placeholder="input" formControlName="correo"
+            [ngStyle]="{'border-color': correo?.invalid && (correo?.dirty || correo?.touched) ? 'red':'gray'}">
+          <label for="floatingEmail">Email</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="floatingTelefono" placeholder="input" formControlName="telefono"
+            [ngStyle]="{'border-color': telefono?.invalid && (telefono?.dirty || telefono?.touched) ? 'red':'gray'}">
+          <label for="floatingTelefono">Telefono</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingAsunto" placeholder="input" formControlName="asunto"
+            [ngStyle]="{'border-color': asunto?.invalid && (asunto?.dirty || asunto?.touched) ? 'red':'gray'}">
+          <label for="floatingAsunto">Asunto</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingMensaje" placeholder="input" formControlName="mensaje"
+            [ngStyle]="{'border-color': mensaje?.invalid && (mensaje?.dirty || mensaje?.touched) ? 'red':'gray'}">
+          <label for="floatingMensaje">Mensaje</label>
+        </div>
+
+        <section class="mb-3 text-center">
+          <button [disabled]="formLogin.invalid" type="submit" class="btn btn-primary">Enviar</button>
+        </section>
+
+      </form>
+    </section>
+  </section>
+</section>
